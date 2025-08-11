@@ -1,193 +1,357 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dronesmith USA — NDAA‑Compliant Drone Motors</title>
-  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/TheDronesmith/dronesmith-site/main/favicon.ico">
-  <meta name="description" content="U.S.-made, NDAA-compliant drone motors for enterprise, public safety, and defense-grade UAVs. Request samples or take our short motor-size poll." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dronesmith USA</title>
+  <meta name="description" content="Dronesmith USA designs and manufactures NDAA-compliant brushless drone motors in the United States. Built for defense and government contractors." />
+  <link rel="icon" type="image/png" href="./favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { inter: ['Inter','ui-sans-serif','system-ui'] },
+          colors: {
+            brand: {
+              DEFAULT: '#0F172A', /* slate-900 */
+              alt: '#1E3A8A',     /* blue-800 */
+              accent: '#16A34A',  /* green-600 */
+            }
+          },
+          boxShadow: {
+            soft: '0 10px 30px rgba(2, 6, 23, 0.15)',
+          }
+        }
+      }
+    }
+  </script>
   <style>
-    :root{--accent:#0f62fe;--bg:#0f1724;--muted:#94a3b8;--card:#0b1220}
-    *{box-sizing:border-box}
-    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0;background:linear-gradient(180deg,#071026 0%, #061224 100%);color:#e6eef8;line-height:1.45}
-    .container{max-width:1100px;margin:0 auto;padding:28px}
-    header{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{height:44px;width:44px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700}
-    h1{font-size:28px;margin:0}
-    .sub{color:var(--muted);margin-top:6px}
-
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:28px 0}
-    .card{background:rgba(255,255,255,0.03);padding:20px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
-
-    .cta-row{display:flex;gap:12px;margin-top:18px}
-    .btn{background:var(--accent);color:white;padding:12px 16px;border-radius:8px;text-decoration:none;font-weight:600}
-    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent)}
-
-    .specs-grid{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
-    .spec{background:rgba(255,255,255,0.02);padding:12px;border-radius:8px;min-width:160px}
-
-    section{margin-top:28px}
-    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    footer{margin-top:36px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.03);color:var(--muted)}
-
-    form.row{display:grid;gap:10px}
-    input,textarea,select{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.05);background:transparent;color:inherit}
-    label{font-size:13px;color:var(--muted)}
-
-    .badge-row{display:flex;gap:8px;align-items:center;margin-top:10px}
-    .badge{background:rgba(255,255,255,0.02);padding:6px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
-
-    @media (max-width:900px){.hero{grid-template-columns:1fr;}.two-col{grid-template-columns:1fr}.container{padding:18px}}
+    html { scroll-behavior: smooth; }
+    .badge { @apply inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium; }
   </style>
 </head>
-<body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="logo">DS</div>
-        <div>
-          <div style="font-weight:700">Dronesmith USA</div>
-          <div style="font-size:13px;color:var(--muted)">U.S.-Made • NDAA‑Compliant • Enterprise Grade</div>
+<body class="bg-slate-50 text-slate-900 font-inter">
+  <!-- Header -->
+  <header class="bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 sticky top-0 z-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="h-16 flex items-center justify-between">
+        <a href="#" class="flex items-center gap-3">
+          <img src="./logo.png" alt="Dronesmith USA logo" class="h-9 w-9 rounded-full ring-1 ring-slate-200" />
+          <span class="text-xl font-semibold tracking-tight">Dronesmith USA</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="#motors" class="hover:text-blue-700">Motors</a>
+          <a href="#compliance" class="hover:text-blue-700">NDAA Compliance</a>
+          <a href="#quality" class="hover:text-blue-700">Quality & Testing</a>
+          <a href="#about" class="hover:text-blue-700">About</a>
+          <a href="#contact" class="hover:text-blue-700">Contact</a>
+          <a href="#motors" class="ml-4 inline-flex items-center rounded-xl bg-blue-700 px-4 py-2 text-white font-medium shadow-soft hover:bg-blue-800">See Our Motors</a>
+        </nav>
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg hover:bg-slate-100" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+      <div id="mobileNav" class="md:hidden hidden pb-4">
+        <div class="grid gap-2">
+          <a href="#motors" class="px-2 py-2 rounded-md hover:bg-slate-100">Motors</a>
+          <a href="#compliance" class="px-2 py-2 rounded-md hover:bg-slate-100">NDAA Compliance</a>
+          <a href="#quality" class="px-2 py-2 rounded-md hover:bg-slate-100">Quality & Testing</a>
+          <a href="#about" class="px-2 py-2 rounded-md hover:bg-slate-100">About</a>
+          <a href="#contact" class="px-2 py-2 rounded-md hover:bg-slate-100">Contact</a>
+          <a href="#motors" class="mt-2 inline-flex items-center justify-center rounded-xl bg-blue-700 px-4 py-2 text-white font-medium shadow-soft hover:bg-blue-800">See Our Motors</a>
         </div>
       </div>
-      <nav style="display:flex;gap:12px;align-items:center">
-        <a class="btn ghost" href="#poll">Take Poll</a>
-        <a class="btn" href="#contact">Request Sample</a>
-      </nav>
-    </header>
+    </div>
+  </header>
 
-    <main>
-      <section class="hero">
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-white via-white to-slate-100"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <span class="badge border-blue-700 text-blue-800 bg-blue-50">NDAA-Compliant • Made in USA</span>
+        <h1 class="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight">Motors engineered for critical missions.</h1>
+        <p class="mt-4 text-lg text-slate-700">Dronesmith USA is building a family of high-performance brushless motors with a compliant, verified US supply chain—purpose-built for government and defense UAV applications.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#motors" class="inline-flex items-center rounded-xl bg-blue-700 px-5 py-3 text-white font-medium shadow-soft hover:bg-blue-800">See Our Motors</a>
+          <a href="#contact" class="inline-flex items-center rounded-xl border border-slate-300 px-5 py-3 font-medium hover:bg-white">Request a Quote</a>
+        </div>
+        <div class="mt-6 flex items-center gap-6 text-sm text-slate-600">
+          <div class="flex items-center gap-2">
+            <span class="h-2.5 w-2.5 rounded-full bg-green-500"></span> NDAA §889 compliant
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="h-2.5 w-2.5 rounded-full bg-green-500"></span> US manufacturing
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="h-2.5 w-2.5 rounded-full bg-green-500"></span> Defense-focused QA
+          </div>
+        </div>
+      </div>
+      <div class="relative">
+        <img src="./logo.png" alt="Dronesmith USA emblem" class="mx-auto h-56 w-56 rounded-full ring-1 ring-slate-200 shadow-soft">
+        <div class="mt-6 grid grid-cols-3 gap-4 text-center">
+          <div class="rounded-xl bg-white p-4 shadow-soft">
+            <div class="text-2xl font-bold">2207</div>
+            <div class="text-xs text-slate-600">Light Lift</div>
+          </div>
+          <div class="rounded-xl bg-white p-4 shadow-soft">
+            <div class="text-2xl font-bold">2812</div>
+            <div class="text-xs text-slate-600">Mid Lift</div>
+          </div>
+          <div class="rounded-xl bg-white p-4 shadow-soft">
+            <div class="text-2xl font-bold">3508</div>
+            <div class="text-xs text-slate-600">Heavy Lift</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance -->
+  <section id="compliance" class="py-16 lg:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-10 items-start">
         <div>
-          <div style="max-width:680px">
-            <h1>U.S.-Made, NDAA‑Compliant Drone Motors</h1>
-            <p class="sub">Designed for OEMs, public safety, and defense contractors. Built in the United States with approved supplier sourcing and full chain‑of‑custody documentation.</p>
-
-            <div class="card">
-              <p style="margin:0;font-weight:600">We're gathering input from OEMs and retailers — help shape our first production run.</p>
-              <div class="cta-row">
-                <a class="btn" href="#poll" role="button">Take the Motor Size Poll</a>
-                <a class="btn ghost" href="#contact">Request Free Sample</a>
-              </div>
+          <h2 class="text-2xl md:text-3xl font-bold">Built to meet NDAA requirements</h2>
+          <p class="mt-4 text-slate-700">Our motors are designed for organizations operating under U.S. procurement restrictions. We source components from vetted U.S. and allied suppliers and maintain documentation trails for compliance verification.</p>
+          <ul class="mt-4 space-y-2 text-slate-700 list-disc pl-5">
+            <li>Prohibited vendors excluded from the supply chain (NDAA §889)</li>
+            <li>Traceable components and materials with vendor attestations</li>
+            <li>Manufacturing and QA processes designed in the U.S.</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl bg-white p-6 shadow-soft border border-slate-200">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="rounded-xl border p-4 text-center">
+              <div class="text-sm text-slate-500">Compliance</div>
+              <div class="mt-1 text-lg font-semibold">NDAA §889</div>
             </div>
-
-            <div style="display:flex;gap:12px;margin-top:14px;align-items:center">
-              <div class="badge">Made in USA</div>
-              <div class="badge">NDAA‑Compliant</div>
-              <div class="badge">Enterprise / Gov Ready</div>
+            <div class="rounded-xl border p-4 text-center">
+              <div class="text-sm text-slate-500">Country of Origin</div>
+              <div class="mt-1 text-lg font-semibold">United States</div>
+            </div>
+            <div class="rounded-xl border p-4 text-center">
+              <div class="text-sm text-slate-500">Documentation</div>
+              <div class="mt-1 text-lg font-semibold">Available on request</div>
+            </div>
+            <div class="rounded-xl border p-4 text-center">
+              <div class="text-sm text-slate-500">Support</div>
+              <div class="mt-1 text-lg font-semibold">Gov/Enterprise</div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <aside>
-          <div class="card">
-            <h3 style="margin-top:0">Motor Capabilities (Preview)</h3>
-            <div class="specs-grid">
-              <div class="spec"><strong>Stator sizes</strong><div class="sub">2207 – 4114 (custom sizes available)</div></div>
-              <div class="spec"><strong>KV range</strong><div class="sub">600 – 1900 KV</div></div>
-              <div class="spec"><strong>Max continuous</strong><div class="sub">1.5 – 3 kW</div></div>
-              <div class="spec"><strong>Bearings</strong><div class="sub">Japanese NMB</div></div>
-              <div class="spec"><strong>Winding</strong><div class="sub">Hand-wound / automated</div></div>
-              <div class="spec"><strong>Lead time</strong><div class="sub">Samples: 2–3 weeks</div></div>
-            </div>
+  <!-- Motors -->
+  <section id="motors" class="py-16 lg:py-20 bg-white border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between gap-6">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold">Motor lineup</h2>
+          <p class="mt-2 text-slate-700">Pre-production designs shown below. Final specifications subject to change.</p>
+        </div>
+        <a href="#contact" class="hidden sm:inline-flex items-center rounded-xl bg-blue-700 px-4 py-2 text-white font-medium shadow-soft hover:bg-blue-800">Request a Quote</a>
+      </div>
 
-            <p style="margin-top:12px;color:var(--muted)">Note: specifications are preliminary. We are actively engaging OEMs and retailers to prioritize sizes for our first production run.</p>
+      <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft flex flex-col">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold">DS-2207</h3>
+            <span class="badge border-amber-400 text-amber-700 bg-amber-50">Under Development</span>
           </div>
-        </aside>
-      </section>
-
-      <section>
-        <div class="two-col">
-          <div class="card">
-            <h3 style="margin-top:0">Why NDAA Compliance Matters</h3>
-            <ul style="color:var(--muted)">
-              <li>Required for many U.S. government and defense contracts.</li>
-              <li>Ensures supply chain transparency and trustworthy sourcing.</li>
-              <li>Makes procurement simpler for enterprise and public safety buyers.</li>
-            </ul>
-            <p style="color:var(--muted)">If NDAA compliance is a requirement for your projects, tell us — we'll prioritize documentation and sourcing details in follow-up conversations.</p>
+          <p class="mt-2 text-slate-700">High-efficiency 5–7” class motor for tactical FPV and ISR.</p>
+          <dl class="mt-4 grid grid-cols-2 gap-3 text-sm">
+            <div><dt class="text-slate-500">KV</dt><dd class="font-medium">1750 (est.)</dd></div>
+            <div><dt class="text-slate-500">Stator</dt><dd class="font-medium">22×7 mm</dd></div>
+            <div><dt class="text-slate-500">Max Thrust</dt><dd class="font-medium">2.2 kg (est.)</dd></div>
+            <div><dt class="text-slate-500">Voltage</dt><dd class="font-medium">6S–8S</dd></div>
+          </dl>
+          <div class="mt-5 flex gap-3">
+            <a href="#contact" class="inline-flex items-center rounded-lg border px-3 py-2 hover:bg-slate-50">Request Info</a>
+            <button class="inline-flex items-center rounded-lg border px-3 py-2 hover:bg-slate-50" onclick="openSpecs('ds2207')">View Specs</button>
           </div>
+        </article>
 
-          <div class="card">
-            <h3 style="margin-top:0">How You Can Help</h3>
-            <ol style="color:var(--muted)">
-              <li>Take our short motor-size poll (30 seconds).</li>
-              <li>Request a free sample for hands-on evaluation.</li>
-              <li>Tell us which stator sizes you use today and why.</li>
-            </ol>
-            <p style="color:var(--muted)">We offer NDAA-related supplier documentation to qualified evaluators on request.</p>
+        <!-- Card 2 -->
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft flex flex-col">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold">DS-2812</h3>
+            <span class="badge border-amber-400 text-amber-700 bg-amber-50">Under Development</span>
+          </div>
+          <p class="mt-2 text-slate-700">Mid-lift motor for professional and industrial platforms.</p>
+          <dl class="mt-4 grid grid-cols-2 gap-3 text-sm">
+            <div><dt class="text-slate-500">KV</dt><dd class="font-medium">900 (est.)</dd></div>
+            <div><dt class="text-slate-500">Stator</dt><dd class="font-medium">28×12 mm</dd></div>
+            <div><dt class="text-slate-500">Max Thrust</dt><dd class="font-medium">4.5 kg (est.)</dd></div>
+            <div><dt class="text-slate-500">Voltage</dt><dd class="font-medium">6S–12S</dd></div>
+          </dl>
+          <div class="mt-5 flex gap-3">
+            <a href="#contact" class="inline-flex items-center rounded-lg border px-3 py-2 hover:bg-slate-50">Request Info</a>
+            <button class="inline-flex items-center rounded-lg border px-3 py-2 hover:bg-slate-50" onclick="openSpecs('ds2812')">View Specs</button>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft flex flex-col">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold">DS-3508</h3>
+            <span class="badge border-amber-400 text-amber-700 bg-amber-50">Coming Soon</span>
+          </div>
+          <p class="mt-2 text-slate-700">Heavy-lift motor for payload and logistics UAVs.</p>
+          <dl class="mt-4 grid grid-cols-2 gap-3 text-sm">
+            <div><dt class="text-slate-500">KV</dt><dd class="font-medium">420 (est.)</dd></div>
+            <div><dt class="text-slate-500">Stator</dt><dd class="font-medium">35×8 mm</dd></div>
+            <div><dt class="text-slate-500">Max Thrust</dt><dd class="font-medium">7.5 kg (est.)</dd></div>
+            <div><dt class="text-slate-500">Voltage</dt><dd class="font-medium">8S–12S</dd></div>
+          </dl>
+          <div class="mt-5 flex gap-3">
+            <a href="#contact" class="inline-flex items-center rounded-lg border px-3 py-2 hover:bg-slate-50">Request Info</a>
+            <button class="inline-flex items-center rounded-lg border px-3 py-2 hover:bg-slate-50" onclick="openSpecs('ds3508')">View Specs</button>
+          </div>
+        </article>
+      </div>
+
+      <p class="mt-6 text-sm text-slate-600">Specifications are preliminary and for planning only. Full datasheets will be released prior to production.</p>
+    </div>
+  </section>
+
+  <!-- Quality & Testing -->
+  <section id="quality" class="py-16 lg:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-start">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-bold">Quality you can validate</h2>
+        <p class="mt-4 text-slate-700">We design for repeatability and longevity. Every production motor will ship with test data, serial traceability, and material certificates where applicable.</p>
+        <ul class="mt-4 space-y-2 text-slate-700 list-disc pl-5">
+          <li>End-of-line performance testing and burn-in</li>
+          <li>Serial numbers mapped to materials & lot history</li>
+          <li>Environmental/thermal testing (profiles available)</li>
+          <li>Custom windings and firmware on request</li>
+        </ul>
+      </div>
+      <div class="rounded-2xl bg-white p-6 shadow-soft border border-slate-200">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="rounded-xl border p-4 text-center">
+            <div class="text-sm text-slate-500">Traceability</div>
+            <div class="mt-1 text-lg font-semibold">Per-unit SN</div>
+          </div>
+          <div class="rounded-xl border p-4 text-center">
+            <div class="text-sm text-slate-500">Datasheets</div>
+            <div class="mt-1 text-lg font-semibold">PDF/CSV</div>
+          </div>
+          <div class="rounded-xl border p-4 text-center">
+            <div class="text-sm text-slate-500">Burn-in</div>
+            <div class="mt-1 text-lg font-semibold">Standard</div>
+          </div>
+          <div class="rounded-xl border p-4 text-center">
+            <div class="text-sm text-slate-500">Support</div>
+            <div class="mt-1 text-lg font-semibold">Engineer-to-Engineer</div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <section id="poll">
-        <div class="card">
-          <h3 style="margin-top:0">Motor Size Poll</h3>
-          <p style="color:var(--muted)">We built a short poll to prioritize the first test sizes. Please click the button below — it opens our Typeform/Google Form.</p>
-          <!-- REPLACE POLL_URL with your Typeform or Google Form link -->
-          <a class="btn" href="REPLACE_WITH_POLL_URL" target="_blank" rel="noopener">Open Poll (Typeform / Google Form)</a>
+  <!-- About -->
+  <section id="about" class="py-16 lg:py-20 bg-white border-y border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-bold">About Dronesmith USA</h2>
+        <p class="mt-4 text-slate-700">We’re focused on building American-made motors that remove supply chain risk for mission-critical platforms. Our goal is to deliver performance on par with the best on the market while ensuring transparent, compliant sourcing.</p>
+      </div>
+      <div class="flex items-center gap-6">
+        <img src="./logo.png" alt="Dronesmith USA logo" class="h-20 w-20 rounded-full ring-1 ring-slate-200">
+        <div class="text-sm text-slate-600">Virginia, USA • Defense & Government UAV Components</div>
+      </div>
+    </div>
+  </section>
 
-          <p style="color:var(--muted);margin-top:10px">If you'd prefer, email <strong>YOUR_NAME@YOUR_DOMAIN.com</strong> and we'll send a tailored sample pack.</p>
+  <!-- Contact / RFQ -->
+  <section id="contact" class="py-16 lg:py-20">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h2 class="text-2xl md:text-3xl font-bold">Request information or a quote</h2>
+        <p class="mt-2 text-slate-700">Tell us about your platform and requirements. We’ll follow up with lead times and integration details.</p>
+      </div>
+      <form name="rfq" method="POST" data-netlify="true" class="mt-8 grid grid-cols-1 gap-4 bg-white p-6 rounded-2xl shadow-soft border border-slate-200">
+        <input type="hidden" name="form-name" value="rfq" />
+        <div class="grid md:grid-cols-2 gap-4">
+          <div><label class="block text-sm text-slate-600 mb-1">Name</label><input required name="name" class="w-full rounded-lg border px-3 py-2" /></div>
+          <div><label class="block text-sm text-slate-600 mb-1">Organization</label><input name="org" class="w-full rounded-lg border px-3 py-2" /></div>
         </div>
-      </section>
-
-      <section id="contact">
-        <div class="card">
-          <h3 style="margin-top:0">Request a Free Sample / Contact</h3>
-          <form class="row" onsubmit="handleSubmit(event)">
-            <label>Name <input id="name" required /></label>
-            <label>Company / Organization <input id="company" required /></label>
-            <label>Email <input id="email" type="email" required /></label>
-            <label>Phone (optional) <input id="phone" /></label>
-            <label>Which sizes are you most interested in?<select id="sizes">
-              <option>2207</option>
-              <option>2306</option>
-              <option>2707</option>
-              <option>2812</option>
-              <option>3508</option>
-              <option>4114</option>
-              <option>Other (specify in message)</option>
-            </select></label>
-            <label>Message <textarea id="message" rows="4" placeholder="Use case, expected volume, any NDA/POC details"></textarea></label>
-            <label style="display:flex;gap:8px;align-items:center"><input id="pollopt" type="checkbox" /> <span style="color:var(--muted)">I want to participate in the motor size poll</span></label>
-            <div style="display:flex;gap:10px">
-              <button class="btn" type="submit">Send Request</button>
-              <a class="btn ghost" href="mailto:YOUR_NAME@YOUR_DOMAIN.com?subject=Sample%20Request">Or email us</a>
-            </div>
-          </form>
-          <script>
-            function handleSubmit(e){
-              e.preventDefault();
-              const data={
-                name:document.getElementById('name').value,
-                company:document.getElementById('company').value,
-                email:document.getElementById('email').value,
-                phone:document.getElementById('phone').value,
-                sizes:document.getElementById('sizes').value,
-                message:document.getElementById('message').value,
-                poll:document.getElementById('pollopt').checked
-              };
-              // Default behavior: open user's mail client with pre-filled content. Replace with Formspree or your endpoint.
-              const subject = encodeURIComponent('Sample Request from '+data.company+'');
-              const body = encodeURIComponent('Name: '+data.name+'\nCompany: '+data.company+'\nEmail: '+data.email+'\nPhone: '+data.phone+'\nSizes: '+data.sizes+'\nPoll: '+data.poll+'\n\nMessage:\n'+data.message);
-              window.location.href = 'mailto:YOUR_NAME@YOUR_DOMAIN.com?subject='+subject+'&body='+body;
-            }
-          </script>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div><label class="block text-sm text-slate-600 mb-1">Email</label><input required name="email" type="email" class="w-full rounded-lg border px-3 py-2" /></div>
+          <div><label class="block text-sm text-slate-600 mb-1">Phone</label><input name="phone" class="w-full rounded-lg border px-3 py-2" /></div>
         </div>
-      </section>
-
-      <footer>
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
-          <div>
-            <div style="font-weight:700">Dronesmith USA</div>
-            <div style="color:var(--muted);font-size:13px">Based in Virginia, USA</div>
-          </div>
-          <div style="color:var(--muted);font-size:13px">Email: <strong>YOUR_NAME@YOUR_DOMAIN.com</strong></div>
+        <div><label class="block text-sm text-slate-600 mb-1">Program or Use Case</label><input name="use_case" class="w-full rounded-lg border px-3 py-2" /></div>
+        <div><label class="block text-sm text-slate-600 mb-1">Message</label><textarea name="message" rows="5" class="w-full rounded-lg border px-3 py-2" placeholder="Desired motor size/KV, voltage, thrust target, quantity, timeline"></textarea></div>
+        <div class="flex justify-end">
+          <button class="inline-flex items-center rounded-xl bg-blue-700 px-5 py-3 text-white font-medium shadow-soft hover:bg-blue-800" type="submit">Send Request</button>
         </div>
-        <div style="margin-top:10px;color:var(--muted);font-size:12px">© Dronesmith USA — NDAA compliance claims are based on supplier documentation available to qualified evaluators. Contact us for details.</div>
-      </footer>
-    </main>
+      </form>
+      <p class="mt-3 text-center text-xs text-slate-500">Submitting this form will email our team. We’ll respond within 1–2 business days.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="./logo.png" alt="Dronesmith USA logo" class="h-8 w-8 rounded-full ring-1 ring-slate-200" />
+        <span class="text-sm text-slate-600">© <span id="year"></span> Dronesmith USA — NDAA-Compliant Motors</span>
+      </div>
+      <div class="text-sm text-slate-600 flex items-center gap-4">
+        <a href="#compliance" class="hover:text-blue-700">Compliance</a>
+        <a href="#motors" class="hover:text-blue-700">Motors</a>
+        <a href="#contact" class="hover:text-blue-700">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Simple modal for 'View Specs' -->
+  <div id="specsModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center p-4">
+    <div class="bg-white max-w-lg w-full rounded-2xl p-6 shadow-soft relative">
+      <button onclick="closeSpecs()" class="absolute top-3 right-3 rounded-md p-1 hover:bg-slate-100" aria-label="Close">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <h3 id="specsTitle" class="text-xl font-semibold">Motor Specs</h3>
+      <div id="specsBody" class="mt-3 text-sm text-slate-700">Preliminary specifications will be provided upon request.</div>
+      <div class="mt-5 text-right">
+        <a href="#contact" class="inline-flex items-center rounded-xl bg-blue-700 px-4 py-2 text-white font-medium hover:bg-blue-800">Contact for Detailed Specs</a>
+      </div>
+    </div>
   </div>
+
+  <script>
+    // Mobile nav
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+    }
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Specs modal
+    const modal = document.getElementById('specsModal');
+    const title = document.getElementById('specsTitle');
+    const body = document.getElementById('specsBody');
+    const SPEC_TEXT = {
+      ds2207: 'DS-2207 (est.): 1750KV, 6S–8S, max thrust ~2.2kg, 5–7” props. Targeting high efficiency for tactical FPV/ISR.',
+      ds2812: 'DS-2812 (est.): 900KV, 6S–12S, max thrust ~4.5kg, 9–12” props. Mid-lift for professional/industrial UAVs.',
+      ds3508: 'DS-3508 (est.): 420KV, 8S–12S, max thrust ~7.5kg, 13–15” props. Heavy-lift/payload applications.'
+    };
+    function openSpecs(id) { title.textContent = id.toUpperCase() + ' — Preliminary Specs'; body.textContent = SPEC_TEXT[id] || 'Preliminary specifications available upon request.'; modal.classList.remove('hidden'); modal.classList.add('flex'); }
+    function closeSpecs() { modal.classList.add('hidden'); modal.classList.remove('flex'); }
+  </script>
 </body>
 </html>
