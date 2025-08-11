@@ -14,344 +14,265 @@
         extend: {
           fontFamily: { inter: ['Inter','ui-sans-serif','system-ui'] },
           colors: {
-            brand: {
-              DEFAULT: '#0F172A', /* slate-900 */
-              alt: '#1E3A8A',     /* blue-800 */
-              accent: '#16A34A',  /* green-600 */
-            }
+            bg: '#0B1220',
+            panel: '#111827',
+            panel2: '#0f172a',
+            text: '#E5E7EB',
+            sub: '#94A3B8',
+            accent: '#2563EB',
+            accent2: '#DC2626'
           },
-          boxShadow: {
-            soft: '0 10px 30px rgba(2, 6, 23, 0.15)',
-          }
+          boxShadow: { soft: '0 10px 30px rgba(0,0,0,0.35)' }
         }
       }
     }
   </script>
-  <style>
-    html { scroll-behavior: smooth; }
-    .badge { @apply inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium; }
-  </style>
+  <style>html{scroll-behavior:smooth}.badge{display:inline-flex;align-items:center;border-radius:9999px;border-width:1px;padding:.25rem .75rem;font-size:.75rem;line-height:1rem;font-weight:500}</style>
 </head>
-<body class="bg-slate-50 text-slate-900 font-inter">
-  <!-- Header -->
-  <header class="bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 sticky top-0 z-50 border-b border-slate-200">
+<body class="bg-bg text-text font-inter">
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-panel/70 backdrop-blur">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="h-16 flex items-center justify-between">
         <a href="#" class="flex items-center gap-3">
-          <img src="./logo.png" alt="Dronesmith USA logo" class="h-9 w-9 rounded-full ring-1 ring-slate-200" />
+          <span class="bg-white rounded-full p-1 ring-1 ring-white/20">
+            <img src="./logo.png" alt="Dronesmith USA logo" class="h-8 w-8 rounded-full" />
+          </span>
           <span class="text-xl font-semibold tracking-tight">Dronesmith USA</span>
         </a>
-        <nav class="hidden md:flex items-center gap-8">
-          <a href="#motors" class="hover:text-blue-700">Motors</a>
-          <a href="#compliance" class="hover:text-blue-700">NDAA Compliance</a>
-          <a href="#quality" class="hover:text-blue-700">Quality & Testing</a>
-          <a href="#about" class="hover:text-blue-700">About</a>
-          <a href="#contact" class="hover:text-blue-700">Contact</a>
-          <a href="#motors" class="ml-4 inline-flex items-center rounded-xl bg-blue-700 px-4 py-2 text-white font-medium shadow-soft hover:bg-blue-800">See Our Motors</a>
+        <nav class="hidden md:flex items-center gap-8 text-sub">
+          <a href="#motors" class="hover:text-white">Motors</a>
+          <a href="#compliance" class="hover:text-white">NDAA Compliance</a>
+          <a href="#quality" class="hover:text-white">Quality & Testing</a>
+          <a href="#about" class="hover:text-white">About</a>
+          <a href="#contact" class="hover:text-white">Contact</a>
+          <a href="#motors" class="ml-4 inline-flex items-center rounded-xl bg-accent px-4 py-2 text-white font-medium shadow-soft hover:brightness-110">See Our Motors</a>
         </nav>
-        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg hover:bg-slate-100" aria-label="Open menu">
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg hover:bg-white/5" aria-label="Open menu">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
       <div id="mobileNav" class="md:hidden hidden pb-4">
-        <div class="grid gap-2">
-          <a href="#motors" class="px-2 py-2 rounded-md hover:bg-slate-100">Motors</a>
-          <a href="#compliance" class="px-2 py-2 rounded-md hover:bg-slate-100">NDAA Compliance</a>
-          <a href="#quality" class="px-2 py-2 rounded-md hover:bg-slate-100">Quality & Testing</a>
-          <a href="#about" class="px-2 py-2 rounded-md hover:bg-slate-100">About</a>
-          <a href="#contact" class="px-2 py-2 rounded-md hover:bg-slate-100">Contact</a>
-          <a href="#motors" class="mt-2 inline-flex items-center justify-center rounded-xl bg-blue-700 px-4 py-2 text-white font-medium shadow-soft hover:bg-blue-800">See Our Motors</a>
+        <div class="grid gap-2 text-sub">
+          <a href="#motors" class="px-2 py-2 rounded-md hover:bg-white/5">Motors</a>
+          <a href="#compliance" class="px-2 py-2 rounded-md hover:bg-white/5">NDAA Compliance</a>
+          <a href="#quality" class="px-2 py-2 rounded-md hover:bg-white/5">Quality & Testing</a>
+          <a href="#about" class="px-2 py-2 rounded-md hover:bg-white/5">About</a>
+          <a href="#contact" class="px-2 py-2 rounded-md hover:bg-white/5">Contact</a>
+          <a href="#motors" class="mt-2 inline-flex items-center justify-center rounded-xl bg-accent px-4 py-2 text-white font-medium shadow-soft">See Our Motors</a>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Hero -->
   <section class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-white via-white to-slate-100"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-panel via-panel2 to-bg"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 grid lg:grid-cols-2 gap-10 items-center">
       <div>
-        <span class="badge border-blue-700 text-blue-800 bg-blue-50">NDAA-Compliant • Made in USA</span>
+        <span class="badge border-accent text-white bg-accent/20">NDAA-Compliant • Made in USA</span>
         <h1 class="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight">Motors engineered for critical missions.</h1>
-        <p class="mt-4 text-lg text-slate-700">Dronesmith USA is building a family of high-performance brushless motors with a compliant, verified US supply chain—purpose-built for government and defense UAV applications.</p>
+        <p class="mt-4 text-lg text-sub">Dronesmith USA builds high-performance brushless motors with a compliant, verified US supply chain—purpose-built for government and defense UAV applications.</p>
         <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#motors" class="inline-flex items-center rounded-xl bg-blue-700 px-5 py-3 text-white font-medium shadow-soft hover:bg-blue-800">See Our Motors</a>
-          <a href="#contact" class="inline-flex items-center rounded-xl border border-slate-300 px-5 py-3 font-medium hover:bg-white">Request a Quote</a>
+          <a href="#motors" class="inline-flex items-center rounded-xl bg-accent px-5 py-3 text-white font-medium shadow-soft hover:brightness-110">See Our Motors</a>
+          <a href="#contact" class="inline-flex items-center rounded-xl border border-white/20 px-5 py-3 font-medium hover:bg-white/5">Request a Quote</a>
         </div>
-        <div class="mt-6 flex items-center gap-6 text-sm text-slate-600">
-          <div class="flex items-center gap-2">
-            <span class="h-2.5 w-2.5 rounded-full bg-green-500"></span> NDAA §889 compliant
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="h-2.5 w-2.5 rounded-full bg-green-500"></span> US manufacturing
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="h-2.5 w-2.5 rounded-full bg-green-500"></span> Defense-focused QA
-          </div>
+        <div class="mt-6 flex items-center gap-6 text-sm text-sub">
+          <div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-green-500"></span> NDAA §889 compliant</div>
+          <div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-green-500"></span> US manufacturing</div>
+          <div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-green-500"></span> Defense-focused QA</div>
         </div>
       </div>
       <div class="relative">
-        <img src="./logo.png" alt="Dronesmith USA emblem" class="mx-auto h-56 w-56 rounded-full ring-1 ring-slate-200 shadow-soft">
-        <div class="mt-6 grid grid-cols-3 gap-4 text-center">
-          <div class="rounded-xl bg-white p-4 shadow-soft">
-            <div class="text-2xl font-bold">2207</div>
-            <div class="text-xs text-slate-600">Light Lift</div>
-          </div>
-          <div class="rounded-xl bg-white p-4 shadow-soft">
-            <div class="text-2xl font-bold">2812</div>
-            <div class="text-xs text-slate-600">Mid Lift</div>
-          </div>
-          <div class="rounded-xl bg-white p-4 shadow-soft">
-            <div class="text-2xl font-bold">3508</div>
-            <div class="text-xs text-slate-600">Heavy Lift</div>
-          </div>
+        <div class="relative rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-soft">
+          <img src="https://raw.githubusercontent.com/TheDronesmith/DronesmithUSA/main/motor.png" alt="Dronesmith USA motor" class="w-full h-[340px] object-cover object-center bg-black/20" />
+          <div class="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-black/10"></div>
         </div>
+        <div class="mt-4 text-xs text-sub">Image may be a prototype/render. Final design and specs subject to change.</div>
       </div>
     </div>
   </section>
 
-  <!-- Compliance -->
   <section id="compliance" class="py-16 lg:py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-2 gap-10 items-start">
         <div>
           <h2 class="text-2xl md:text-3xl font-bold">Built to meet NDAA requirements</h2>
-          <p class="mt-4 text-slate-700">Our motors are designed for organizations operating under U.S. procurement restrictions. We source components from vetted U.S. and allied suppliers and maintain documentation trails for compliance verification.</p>
-          <ul class="mt-4 space-y-2 text-slate-700 list-disc pl-5">
+          <p class="mt-4 text-sub">We source components from vetted U.S. and allied suppliers and maintain documentation trails for compliance verification.</p>
+          <ul class="mt-4 space-y-2 text-sub list-disc pl-5">
             <li>Prohibited vendors excluded from the supply chain (NDAA §889)</li>
             <li>Traceable components and materials with vendor attestations</li>
             <li>Manufacturing and QA processes designed in the U.S.</li>
           </ul>
         </div>
-        <div class="rounded-2xl bg-white p-6 shadow-soft border border-slate-200">
+        <div class="rounded-2xl bg-white/5 p-6 shadow-soft border border-white/10">
           <div class="grid grid-cols-2 gap-4">
-            <div class="rounded-xl border p-4 text-center">
-              <div class="text-sm text-slate-500">Compliance</div>
-              <div class="mt-1 text-lg font-semibold">NDAA §889</div>
-            </div>
-            <div class="rounded-xl border p-4 text-center">
-              <div class="text-sm text-slate-500">Country of Origin</div>
-              <div class="mt-1 text-lg font-semibold">United States</div>
-            </div>
-            <div class="rounded-xl border p-4 text-center">
-              <div class="text-sm text-slate-500">Documentation</div>
-              <div class="mt-1 text-lg font-semibold">Available on request</div>
-            </div>
-            <div class="rounded-xl border p-4 text-center">
-              <div class="text-sm text-slate-500">Support</div>
-              <div class="mt-1 text-lg font-semibold">Gov/Enterprise</div>
-            </div>
+            <div class="rounded-xl border border-white/10 p-4 text-center"><div class="text-sm text-sub">Compliance</div><div class="mt-1 text-lg font-semibold">NDAA §889</div></div>
+            <div class="rounded-xl border border-white/10 p-4 text-center"><div class="text-sm text-sub">Country of Origin</div><div class="mt-1 text-lg font-semibold">United States</div></div>
+            <div class="rounded-xl border border-white/10 p-4 text-center"><div class="text-sm text-sub">Documentation</div><div class="mt-1 text-lg font-semibold">Available on request</div></div>
+            <div class="rounded-xl border border-white/10 p-4 text-center"><div class="text-sm text-sub">Support</div><div class="mt-1 text-lg font-semibold">Gov/Enterprise</div></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Motors -->
-  <section id="motors" class="py-16 lg:py-20 bg-white border-y border-slate-200">
+  <section id="motors" class="py-16 lg:py-20 bg-panel2 border-y border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-end justify-between gap-6">
         <div>
           <h2 class="text-2xl md:text-3xl font-bold">Motor lineup</h2>
-          <p class="mt-2 text-slate-700">Pre-production designs shown below. Final specifications subject to change.</p>
+          <p class="mt-2 class=text-sub">Pre-production designs shown below. Final specifications subject to change.</p>
         </div>
-        <a href="#contact" class="hidden sm:inline-flex items-center rounded-xl bg-blue-700 px-4 py-2 text-white font-medium shadow-soft hover:bg-blue-800">Request a Quote</a>
+        <a href="#contact" class="hidden sm:inline-flex items-center rounded-xl bg-accent px-4 py-2 text-white font-medium shadow-soft hover:brightness-110">Request a Quote</a>
       </div>
-
       <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Card 1 -->
-        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft flex flex-col">
-          <div class="flex items-center justify-between">
-            <h3 class="text-xl font-semibold">DS-2207</h3>
-            <span class="badge border-amber-400 text-amber-700 bg-amber-50">Under Development</span>
-          </div>
-          <p class="mt-2 text-slate-700">High-efficiency 5–7” class motor for tactical FPV and ISR.</p>
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-soft flex flex-col">
+          <div class="flex items-center justify-between"><h3 class="text-xl font-semibold">DS-2207</h3><span class="badge border-amber-400 text-amber-300 bg-amber-400/10">Under Development</span></div>
+          <p class="mt-2 text-sub">High-efficiency 5–7” class motor for tactical FPV and ISR.</p>
           <dl class="mt-4 grid grid-cols-2 gap-3 text-sm">
-            <div><dt class="text-slate-500">KV</dt><dd class="font-medium">1750 (est.)</dd></div>
-            <div><dt class="text-slate-500">Stator</dt><dd class="font-medium">22×7 mm</dd></div>
-            <div><dt class="text-slate-500">Max Thrust</dt><dd class="font-medium">2.2 kg (est.)</dd></div>
-            <div><dt class="text-slate-500">Voltage</dt><dd class="font-medium">6S–8S</dd></div>
+            <div><dt class="text-sub">KV</dt><dd class="font-medium">1750 (est.)</dd></div>
+            <div><dt class="text-sub">Stator</dt><dd class="font-medium">22×7 mm</dd></div>
+            <div><dt class="text-sub">Max Thrust</dt><dd class="font-medium">2.2 kg (est.)</dd></div>
+            <div><dt class="text-sub">Voltage</dt><dd class="font-medium">6S–8S</dd></div>
           </dl>
           <div class="mt-5 flex gap-3">
-            <a href="#contact" class="inline-flex items-center rounded-lg border px-3 py-2 hover:bg-slate-50">Request Info</a>
-            <button class="inline-flex items-center rounded-lg border px-3 py-2 hover:bg-slate-50" onclick="openSpecs('ds2207')">View Specs</button>
+            <a href="#contact" class="inline-flex items-center rounded-lg border border-white/10 px-3 py-2 hover:bg-white/5">Request Info</a>
+            <button class="inline-flex items-center rounded-lg border border-white/10 px-3 py-2 hover:bg-white/5" onclick="openSpecs('ds2207')">View Specs</button>
           </div>
         </article>
 
-        <!-- Card 2 -->
-        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft flex flex-col">
-          <div class="flex items-center justify-between">
-            <h3 class="text-xl font-semibold">DS-2812</h3>
-            <span class="badge border-amber-400 text-amber-700 bg-amber-50">Under Development</span>
-          </div>
-          <p class="mt-2 text-slate-700">Mid-lift motor for professional and industrial platforms.</p>
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-soft flex flex-col">
+          <div class="flex items-center justify-between"><h3 class="text-xl font-semibold">DS-2812</h3><span class="badge border-amber-400 text-amber-300 bg-amber-400/10">Under Development</span></div>
+          <p class="mt-2 text-sub">Mid-lift motor for professional and industrial platforms.</p>
           <dl class="mt-4 grid grid-cols-2 gap-3 text-sm">
-            <div><dt class="text-slate-500">KV</dt><dd class="font-medium">900 (est.)</dd></div>
-            <div><dt class="text-slate-500">Stator</dt><dd class="font-medium">28×12 mm</dd></div>
-            <div><dt class="text-slate-500">Max Thrust</dt><dd class="font-medium">4.5 kg (est.)</dd></div>
-            <div><dt class="text-slate-500">Voltage</dt><dd class="font-medium">6S–12S</dd></div>
+            <div><dt class="text-sub">KV</dt><dd class="font-medium">900 (est.)</dd></div>
+            <div><dt class="text-sub">Stator</dt><dd class="font-medium">28×12 mm</dd></div>
+            <div><dt class="text-sub">Max Thrust</dt><dd class="font-medium">4.5 kg (est.)</dd></div>
+            <div><dt class="text-sub">Voltage</dt><dd class="font-medium">6S–12S</dd></div>
           </dl>
           <div class="mt-5 flex gap-3">
-            <a href="#contact" class="inline-flex items-center rounded-lg border px-3 py-2 hover:bg-slate-50">Request Info</a>
-            <button class="inline-flex items-center rounded-lg border px-3 py-2 hover:bg-slate-50" onclick="openSpecs('ds2812')">View Specs</button>
+            <a href="#contact" class="inline-flex items-center rounded-lg border border-white/10 px-3 py-2 hover:bg-white/5">Request Info</a>
+            <button class="inline-flex items-center rounded-lg border border-white/10 px-3 py-2 hover:bg-white/5" onclick="openSpecs('ds2812')">View Specs</button>
           </div>
         </article>
 
-        <!-- Card 3 -->
-        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft flex flex-col">
-          <div class="flex items-center justify-between">
-            <h3 class="text-xl font-semibold">DS-3508</h3>
-            <span class="badge border-amber-400 text-amber-700 bg-amber-50">Coming Soon</span>
-          </div>
-          <p class="mt-2 text-slate-700">Heavy-lift motor for payload and logistics UAVs.</p>
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-soft flex flex-col">
+          <div class="flex items-center justify-between"><h3 class="text-xl font-semibold">DS-3508</h3><span class="badge border-blue-400 text-blue-300 bg-blue-400/10">Coming Soon</span></div>
+          <p class="mt-2 text-sub">Heavy-lift motor for payload and logistics UAVs.</p>
           <dl class="mt-4 grid grid-cols-2 gap-3 text-sm">
-            <div><dt class="text-slate-500">KV</dt><dd class="font-medium">420 (est.)</dd></div>
-            <div><dt class="text-slate-500">Stator</dt><dd class="font-medium">35×8 mm</dd></div>
-            <div><dt class="text-slate-500">Max Thrust</dt><dd class="font-medium">7.5 kg (est.)</dd></div>
-            <div><dt class="text-slate-500">Voltage</dt><dd class="font-medium">8S–12S</dd></div>
+            <div><dt class="text-sub">KV</dt><dd class="font-medium">420 (est.)</dd></div>
+            <div><dt class="text-sub">Stator</dt><dd class="font-medium">35×8 mm</dd></div>
+            <div><dt class="text-sub">Max Thrust</dt><dd class="font-medium">7.5 kg (est.)</dd></div>
+            <div><dt class="text-sub">Voltage</dt><dd class="font-medium">8S–12S</dd></div>
           </dl>
           <div class="mt-5 flex gap-3">
-            <a href="#contact" class="inline-flex items-center rounded-lg border px-3 py-2 hover:bg-slate-50">Request Info</a>
-            <button class="inline-flex items-center rounded-lg border px-3 py-2 hover:bg-slate-50" onclick="openSpecs('ds3508')">View Specs</button>
+            <a href="#contact" class="inline-flex items-center rounded-lg border border-white/10 px-3 py-2 hover:bg-white/5">Request Info</a>
+            <button class="inline-flex items-center rounded-lg border border-white/10 px-3 py-2 hover:bg-white/5" onclick="openSpecs('ds3508')">View Specs</button>
           </div>
         </article>
       </div>
 
-      <p class="mt-6 text-sm text-slate-600">Specifications are preliminary and for planning only. Full datasheets will be released prior to production.</p>
+      <p class="mt-6 text-xs text-sub">Specifications are preliminary and for planning only. Full datasheets will be released prior to production.</p>
     </div>
   </section>
 
-  <!-- Quality & Testing -->
   <section id="quality" class="py-16 lg:py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-start">
       <div>
         <h2 class="text-2xl md:text-3xl font-bold">Quality you can validate</h2>
-        <p class="mt-4 text-slate-700">We design for repeatability and longevity. Every production motor will ship with test data, serial traceability, and material certificates where applicable.</p>
-        <ul class="mt-4 space-y-2 text-slate-700 list-disc pl-5">
+        <p class="mt-4 text-sub">Every production motor will ship with test data, serial traceability, and material certificates where applicable.</p>
+        <ul class="mt-4 space-y-2 text-sub list-disc pl-5">
           <li>End-of-line performance testing and burn-in</li>
           <li>Serial numbers mapped to materials & lot history</li>
           <li>Environmental/thermal testing (profiles available)</li>
           <li>Custom windings and firmware on request</li>
         </ul>
       </div>
-      <div class="rounded-2xl bg-white p-6 shadow-soft border border-slate-200">
+      <div class="rounded-2xl bg-white/5 p-6 shadow-soft border border-white/10">
         <div class="grid grid-cols-2 gap-4">
-          <div class="rounded-xl border p-4 text-center">
-            <div class="text-sm text-slate-500">Traceability</div>
-            <div class="mt-1 text-lg font-semibold">Per-unit SN</div>
-          </div>
-          <div class="rounded-xl border p-4 text-center">
-            <div class="text-sm text-slate-500">Datasheets</div>
-            <div class="mt-1 text-lg font-semibold">PDF/CSV</div>
-          </div>
-          <div class="rounded-xl border p-4 text-center">
-            <div class="text-sm text-slate-500">Burn-in</div>
-            <div class="mt-1 text-lg font-semibold">Standard</div>
-          </div>
-          <div class="rounded-xl border p-4 text-center">
-            <div class="text-sm text-slate-500">Support</div>
-            <div class="mt-1 text-lg font-semibold">Engineer-to-Engineer</div>
-          </div>
+          <div class="rounded-xl border border-white/10 p-4 text-center"><div class="text-sm text-sub">Traceability</div><div class="mt-1 text-lg font-semibold">Per-unit SN</div></div>
+          <div class="rounded-xl border border-white/10 p-4 text-center"><div class="text-sm text-sub">Datasheets</div><div class="mt-1 text-lg font-semibold">PDF/CSV</div></div>
+          <div class="rounded-xl border border-white/10 p-4 text-center"><div class="text-sm text-sub">Burn-in</div><div class="mt-1 text-lg font-semibold">Standard</div></div>
+          <div class="rounded-xl border border-white/10 p-4 text-center"><div class="text-sm text-sub">Support</div><div class="mt-1 text-lg font-semibold">Engineer-to-Engineer</div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="py-16 lg:py-20 bg-white border-y border-slate-200">
+  <section id="about" class="py-16 lg:py-20 bg-panel border-y border-white/10">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
       <div>
         <h2 class="text-2xl md:text-3xl font-bold">About Dronesmith USA</h2>
-        <p class="mt-4 text-slate-700">We’re focused on building American-made motors that remove supply chain risk for mission-critical platforms. Our goal is to deliver performance on par with the best on the market while ensuring transparent, compliant sourcing.</p>
+        <p class="mt-4 text-sub">We’re focused on building American-made motors that remove supply chain risk for mission-critical platforms. Our goal is to deliver performance on par with the best on the market while ensuring transparent, compliant sourcing.</p>
       </div>
       <div class="flex items-center gap-6">
-        <img src="./logo.png" alt="Dronesmith USA logo" class="h-20 w-20 rounded-full ring-1 ring-slate-200">
-        <div class="text-sm text-slate-600">Virginia, USA • Defense & Government UAV Components</div>
+        <span class="bg-white rounded-full p-1 ring-1 ring-white/20"><img src="./logo.png" alt="Dronesmith USA logo" class="h-20 w-20 rounded-full"></span>
+        <div class="text-sm text-sub">Virginia, USA • Defense & Government UAV Components</div>
       </div>
     </div>
   </section>
 
-  <!-- Contact / RFQ -->
   <section id="contact" class="py-16 lg:py-20">
     <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <h2 class="text-2xl md:text-3xl font-bold">Request information or a quote</h2>
-        <p class="mt-2 text-slate-700">Tell us about your platform and requirements. We’ll follow up with lead times and integration details.</p>
+        <p class="mt-2 text-sub">Tell us about your platform and requirements. We’ll follow up with lead times and integration details.</p>
       </div>
-      <form name="rfq" method="POST" data-netlify="true" class="mt-8 grid grid-cols-1 gap-4 bg-white p-6 rounded-2xl shadow-soft border border-slate-200">
+      <form name="rfq" method="POST" data-netlify="true" class="mt-8 grid grid-cols-1 gap-4 bg-white/5 p-6 rounded-2xl shadow-soft border border-white/10">
         <input type="hidden" name="form-name" value="rfq" />
         <div class="grid md:grid-cols-2 gap-4">
-          <div><label class="block text-sm text-slate-600 mb-1">Name</label><input required name="name" class="w-full rounded-lg border px-3 py-2" /></div>
-          <div><label class="block text-sm text-slate-600 mb-1">Organization</label><input name="org" class="w-full rounded-lg border px-3 py-2" /></div>
+          <div><label class="block text-sm text-sub mb-1">Name</label><input required name="name" class="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-white" /></div>
+          <div><label class="block text-sm text-sub mb-1">Organization</label><input name="org" class="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-white" /></div>
         </div>
         <div class="grid md:grid-cols-2 gap-4">
-          <div><label class="block text-sm text-slate-600 mb-1">Email</label><input required name="email" type="email" class="w-full rounded-lg border px-3 py-2" /></div>
-          <div><label class="block text-sm text-slate-600 mb-1">Phone</label><input name="phone" class="w-full rounded-lg border px-3 py-2" /></div>
+          <div><label class="block text-sm text-sub mb-1">Email</label><input required name="email" type="email" class="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-white" /></div>
+          <div><label class="block text-sm text-sub mb-1">Phone</label><input name="phone" class="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-white" /></div>
         </div>
-        <div><label class="block text-sm text-slate-600 mb-1">Program or Use Case</label><input name="use_case" class="w-full rounded-lg border px-3 py-2" /></div>
-        <div><label class="block text-sm text-slate-600 mb-1">Message</label><textarea name="message" rows="5" class="w-full rounded-lg border px-3 py-2" placeholder="Desired motor size/KV, voltage, thrust target, quantity, timeline"></textarea></div>
-        <div class="flex justify-end">
-          <button class="inline-flex items-center rounded-xl bg-blue-700 px-5 py-3 text-white font-medium shadow-soft hover:bg-blue-800" type="submit">Send Request</button>
-        </div>
+        <div><label class="block text-sm text-sub mb-1">Program or Use Case</label><input name="use_case" class="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-white" /></div>
+        <div><label class="block text-sm text-sub mb-1">Message</label><textarea name="message" rows="5" class="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-white" placeholder="Desired motor size/KV, voltage, thrust target, quantity, timeline"></textarea></div>
+        <div class="flex justify-end"><button class="inline-flex items-center rounded-xl bg-accent px-5 py-3 text-white font-medium shadow-soft hover:brightness-110" type="submit">Send Request</button></div>
       </form>
-      <p class="mt-3 text-center text-xs text-slate-500">Submitting this form will email our team. We’ll respond within 1–2 business days.</p>
+      <p class="mt-3 text-center text-xs text-sub">Submitting this form will email our team. We’ll respond within 1–2 business days.</p>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-white border-t border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+  <footer class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sub">
       <div class="flex items-center gap-3">
-        <img src="./logo.png" alt="Dronesmith USA logo" class="h-8 w-8 rounded-full ring-1 ring-slate-200" />
-        <span class="text-sm text-slate-600">© <span id="year"></span> Dronesmith USA — NDAA-Compliant Motors</span>
+        <span class="bg-white rounded-full p-1 ring-1 ring-white/20"><img src="./logo.png" alt="Dronesmith USA logo" class="h-8 w-8 rounded-full" /></span>
+        <span class="text-sm">© <span id="year"></span> Dronesmith USA — NDAA-Compliant Motors</span>
       </div>
-      <div class="text-sm text-slate-600 flex items-center gap-4">
-        <a href="#compliance" class="hover:text-blue-700">Compliance</a>
-        <a href="#motors" class="hover:text-blue-700">Motors</a>
-        <a href="#contact" class="hover:text-blue-700">Contact</a>
+      <div class="text-sm flex items-center gap-4">
+        <a href="#compliance" class="hover:text-white">Compliance</a>
+        <a href="#motors" class="hover:text-white">Motors</a>
+        <a href="#contact" class="hover:text-white">Contact</a>
       </div>
     </div>
   </footer>
 
-  <!-- Simple modal for 'View Specs' -->
-  <div id="specsModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center p-4">
-    <div class="bg-white max-w-lg w-full rounded-2xl p-6 shadow-soft relative">
-      <button onclick="closeSpecs()" class="absolute top-3 right-3 rounded-md p-1 hover:bg-slate-100" aria-label="Close">
+  <div id="specsModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center p-4">
+    <div class="bg-panel max-w-lg w-full rounded-2xl p-6 shadow-soft border border-white/10 relative">
+      <button onclick="closeSpecs()" class="absolute top-3 right-3 rounded-md p-1 hover:bg-white/5" aria-label="Close">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
       <h3 id="specsTitle" class="text-xl font-semibold">Motor Specs</h3>
-      <div id="specsBody" class="mt-3 text-sm text-slate-700">Preliminary specifications will be provided upon request.</div>
+      <div id="specsBody" class="mt-3 text-sm text-sub">Preliminary specifications will be provided upon request.</div>
       <div class="mt-5 text-right">
-        <a href="#contact" class="inline-flex items-center rounded-xl bg-blue-700 px-4 py-2 text-white font-medium hover:bg-blue-800">Contact for Detailed Specs</a>
+        <a href="#contact" class="inline-flex items-center rounded-xl bg-accent px-4 py-2 text-white font-medium hover:brightness-110">Contact for Detailed Specs</a>
       </div>
     </div>
   </div>
 
   <script>
-    // Mobile nav
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileNav = document.getElementById('mobileNav');
-    if (menuBtn) {
-      menuBtn.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
-    }
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Specs modal
-    const modal = document.getElementById('specsModal');
-    const title = document.getElementById('specsTitle');
-    const body = document.getElementById('specsBody');
-    const SPEC_TEXT = {
-      ds2207: 'DS-2207 (est.): 1750KV, 6S–8S, max thrust ~2.2kg, 5–7” props. Targeting high efficiency for tactical FPV/ISR.',
-      ds2812: 'DS-2812 (est.): 900KV, 6S–12S, max thrust ~4.5kg, 9–12” props. Mid-lift for professional/industrial UAVs.',
-      ds3508: 'DS-3508 (est.): 420KV, 8S–12S, max thrust ~7.5kg, 13–15” props. Heavy-lift/payload applications.'
-    };
-    function openSpecs(id) { title.textContent = id.toUpperCase() + ' — Preliminary Specs'; body.textContent = SPEC_TEXT[id] || 'Preliminary specifications available upon request.'; modal.classList.remove('hidden'); modal.classList.add('flex'); }
-    function closeSpecs() { modal.classList.add('hidden'); modal.classList.remove('flex'); }
+    const menuBtn=document.getElementById('menuBtn');const mobileNav=document.getElementById('mobileNav');if(menuBtn)menuBtn.addEventListener('click',()=>mobileNav.classList.toggle('hidden'));
+    document.getElementById('year').textContent=new Date().getFullYear();
+    const modal=document.getElementById('specsModal');const title=document.getElementById('specsTitle');const body=document.getElementById('specsBody');
+    const SPEC_TEXT={ds2207:'DS-2207 (est.): 1750KV, 6S–8S, max thrust ~2.2kg, 5–7” props. Targeting high efficiency for tactical FPV/ISR.',ds2812:'DS-2812 (est.): 900KV, 6S–12S, max thrust ~4.5kg, 9–12” props. Mid-lift for professional/industrial UAVs.',ds3508:'DS-3508 (est.): 420KV, 8S–12S, max thrust ~7.5kg, 13–15” props. Heavy-lift/payload applications.'};
+    function openSpecs(id){title.textContent=id.toUpperCase()+' — Preliminary Specs';body.textContent=SPEC_TEXT[id]||'Preliminary specifications available upon request.';modal.classList.remove('hidden');modal.classList.add('flex');}
+    function closeSpecs(){modal.classList.add('hidden');modal.classList.remove('flex');}
   </script>
 </body>
 </html>
