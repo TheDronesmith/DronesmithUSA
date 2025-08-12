@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head><title>Dronesmith USA</title></head>
+<body>
+<form name="rfq" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" action="/thanks.html">
+  <input type="hidden" name="form-name" value="rfq" />
+  <p><label>Name: <input type="text" name="name" /></label></p>
+  <p><label>Organization: <input type="text" name="org" /></label></p>
+  <p><label>Email: <input type="email" name="email" /></label></p>
+  <p><label>Message: <textarea name="message"></textarea></label></p>
+  <p><label>NDA Upload (optional): <input type="file" name="nda" id="ndaFile" /></label></p>
+  <p><button type="submit">Send Request</button></p>
+  <div id="rfqSuccess" class="hidden">Success! <span id="successCheck">✔</span></div>
+</form>
+<script>
+(function(){
+  const form = document.querySelector('form[name="rfq"]');
+  if(!form) return;
+  const ndaInput = form.querySelector('#ndaFile');
+  const success = document.getElementById('rfqSuccess');
+  const check = document.getElementById('successCheck');
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const hasFile = ndaInput && ndaInput.files && ndaInput.files.length > 0;
+    if(hasFile){
+      form.setAttribute('action','/thanks.html');
+      form.submit();
+      return;
+    }
+    const fd = new FormData(form);
+    if(!fd.get('form-name')) fd.append('form-name','rfq');
+    const params = new URLSearchParams();
+    for (const [k,v] of fd.entries()){ params.append(k, v); }
+    const resp = await fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: params.toString()
+    });
+    if(resp.ok){
+      success.classList.remove('hidden');
+      if(check){ check.textContent = '✔'; }
+      form.reset();
+    } else {
+      form.submit();
+    }
+  });
+})();
+</script>
+</body>
+</html>
