@@ -202,17 +202,17 @@
         <h2 class="text-2xl md:text-3xl font-bold">Request information or a quote</h2>
         <p class="mt-2 text-sub">Tell us about your platform and requirements. We’ll follow up with lead times and integration details.</p>
       </div>
-      <form name="rfq" method="POST" data-netlify="true" class="mt-8 grid grid-cols-1 gap-4 bg-white/5 p-6 rounded-2xl shadow-soft border border-white/10" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-netlify-recaptcha="true" enctype="multipart/form-data"><div class="hidden"><label>Don’t fill this out if you’re human: <input name="bot-field" /></label></div>
+      <!-- <form name="rfq" method="POST" netlify action="/thanks.html" class="mt-8 grid grid-cols-1 gap-4 bg-white/5 p-6 rounded-2xl shadow-soft border border-white/10">
 
         <input type="hidden" name="form-name" value="rfq" />
         <div class="grid md:grid-cols-2 gap-4">
-          <div><label class="block text-sm text-sub mb-1">Name</label><input required name="name" class="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-white" / required aria-required="true">
+          <div><label class="block text-sm text-sub mb-1">Name</label><input required name="name" class="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-white" required aria-required="true">
 <div id="err-name" class="mt-1 hidden text-sm text-red-400 bg-red-400/10 border border-red-400/30 rounded-lg px-2 py-1"></div></div>
-          <div><label class="block text-sm text-sub mb-1">Organization</label><input name="org" class="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-white" / required aria-required="true">
+          <div><label class="block text-sm text-sub mb-1">Organization</label><input name="org" class="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-white" required aria-required="true">
 <div id="err-org" class="mt-1 hidden text-sm text-red-400 bg-red-400/10 border border-red-400/30 rounded-lg px-2 py-1"></div></div>
         </div>
         <div class="grid md:grid-cols-2 gap-4">
-          <div><label class="block text-sm text-sub mb-1">Email</label><input required name="email" type="email" class="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-white" / required aria-required="true">
+          <div><label class="block text-sm text-sub mb-1">Email</label><input required name="email" type="email" class="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-white" required aria-required="true">
 <div id="err-email" class="mt-1 hidden text-sm text-red-400 bg-red-400/10 border border-red-400/30 rounded-lg px-2 py-1"></div></div>
           <div><label class="block text-sm text-sub mb-1">Phone (optional)</label><input name="phone" class="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-white" /></div>
         </div>
@@ -221,21 +221,27 @@
 <div id="err-message" class="mt-1 hidden text-sm text-red-400 bg-red-400/10 border border-red-400/30 rounded-lg px-2 py-1"></div></div>
 
 
-<div class="mt-4">
-  <label class="block text-sm text-sub mb-1">NDA Upload (optional)</label>
-  <div class="relative rounded-xl border border-white/10 bg-white/5 p-3">
-    <input id="ndaFile" name="nda_upload" type="file" accept="application/pdf" class="sr-only">
-    <div class="flex items-center">
-      <button type="button" id="ndaBtn" class="inline-flex items-center rounded-xl border border-white/20 bg-white/10 px-4 py-2 text-sm hover:bg-white/15">
-        Choose PDF
-      </button>
-      <span id="ndaFilename" class="ml-3 text-sm text-sub truncate">No file selected</span>
-    </div>
-  </div>
+</div>
   <p class="mt-1 text-xs text-sub">PDF only, max 10 MB.</p>
 </div>
         <div class="flex justify-end"><button class="inline-flex items-center rounded-xl bg-accent px-5 py-3 text-white font-medium shadow-soft hover:brightness-110" type="submit">Send Request</button></div>
+        </div>
+      </form> -->
+      <form name="rfq" method="POST" data-netlify="true" class="mt-8 grid grid-cols-1 gap-4 bg-white/5 p-6 rounded-2xl shadow-soft border border-white/10">
+        <input type="hidden" name="form-name" value="rfq" />
+        <div class="grid md:grid-cols-2 gap-4">
+          <div><label class="block text-sm text-sub mb-1">Name</label><input required name="name" class="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-white" /></div>
+          <div><label class="block text-sm text-sub mb-1">Organization</label><input name="org" class="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-white" /></div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div><label class="block text-sm text-sub mb-1">Email</label><input required name="email" type="email" class="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-white" /></div>
+          <div><label class="block text-sm text-sub mb-1">Phone (optional)</label><input name="phone" class="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-white" /></div>
+        </div>
+        <div><label class="block text-sm text-sub mb-1">Program or Use Case (optional)</label><input name="use_case" class="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-white" /></div>
+        <div><label class="block text-sm text-sub mb-1">Message</label><textarea name="message" rows="5" class="w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-white" placeholder="Desired motor size/KV, voltage, thrust target, quantity, timeline"></textarea></div>
+        <div class="flex justify-end"><button class="inline-flex items-center rounded-xl bg-accent px-5 py-3 text-white font-medium shadow-soft hover:brightness-110" type="submit">Send Request</button></div>
       </form>
+
 <div id="rfqSuccess" class="mt-4 hidden text-sm flex items-center gap-2 text-green-400 bg-green-400/10 border border-green-400/30 rounded-lg p-3">
   <svg id="successCheck" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 opacity-0 transform scale-50 transition-all duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -251,10 +257,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sub">
       <div class="flex items-center gap-3">
         <img src="./logo.png" alt="Dronesmith USA logo" class="h-8 w-8 rounded-full ring-1 ring-white/10" />
-        <span class="text-sm">© <span id="year"></span> Dronesmith USA</span>
+        <span class="text-sm">© <span id="year"></span> Dronesmith LLC</span>
       </div>
       <div class="text-sm flex items-center gap-4">
-        <a href="#compliance" class="hover:text-white">Compliance</a>
+        <a href="#compliance" class="hover:text-white">NDAA Compliance</a>
         <a href="#contact" class="hover:text-white">Contact</a>
       </div>
     </div>
@@ -277,131 +283,7 @@
 
 
 
-<script>
-(function(){
-  const form = document.querySelector('form[name="rfq"]');
-  if(!form) return;
 
-  // Optional debug toggle: set window.NETLIFY_PLAIN_SUBMIT = true in console to bypass AJAX.
-  const plainSubmitToggle = () => typeof window.NETLIFY_PLAIN_SUBMIT !== 'undefined' && window.NETLIFY_PLAIN_SUBMIT;
-
-  // Required field validation (kept from prior build)
-  const fields = [
-    { name: 'name',    msg: 'Please enter your name.', email: false },
-    { name: 'org',     msg: 'Please enter your organization.', email: false },
-    { name: 'email',   msg: 'Please enter a valid email address.', email: true },
-    { name: 'message', msg: 'Please enter your message.', email: false }
-  ];
-  function showError(fieldName, text){
-    const err = document.getElementById('err-' + fieldName);
-    if(err){ err.textContent = text; err.classList.remove('hidden'); }
-    const el = form.querySelector('[name="'+fieldName+'"]');
-    if(el) el.setAttribute('aria-invalid','true');
-  }
-  function clearErrors(){
-    fields.forEach(f=>{
-      const err = document.getElementById('err-' + f.name);
-      if(err) err.classList.add('hidden');
-      const el = form.querySelector('[name="'+f.name+'"]');
-      if(el) el.removeAttribute('aria-invalid');
-    });
-  }
-  function validate(){
-    clearErrors();
-    let firstInvalid = null;
-    fields.forEach(f=>{
-      const el = form.querySelector('[name="'+f.name+'"]');
-      if(!el) return;
-      const val = (el.value||'').trim();
-      let ok = !!val;
-      if(ok && f.email){ ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val); }
-      if(!ok){
-        showError(f.name, f.msg);
-        if(!firstInvalid) firstInvalid = el;
-      }
-    });
-    return firstInvalid;
-  }
-
-  // NDA custom UI
-  const ndaInput = form.querySelector('#ndaFile');
-  const ndaBtn = form.querySelector('#ndaBtn');
-  const ndaName = form.querySelector('#ndaFilename');
-  if(ndaBtn && ndaInput){
-    ndaBtn.addEventListener('click', ()=> ndaInput.click());
-    ndaInput.addEventListener('change', ()=>{
-      ndaName.textContent = (ndaInput.files && ndaInput.files[0]) ? ndaInput.files[0].name : 'No file selected';
-    });
-  }
-
-  const success = document.getElementById('rfqSuccess');
-  const check = document.getElementById('successCheck');
-
-  form.addEventListener('submit', async function(e){
-    e.preventDefault();
-
-    const firstInvalid = validate();
-    if(firstInvalid){
-      firstInvalid.scrollIntoView({behavior:'smooth', block:'center'});
-      firstInvalid.focus({preventScroll:true});
-      return;
-    }
-
-    // Honeypot
-    const hp = form.querySelector('[name="bot-field"]');
-    if(hp && hp.value) return;
-
-    // If user enabled plain submit toggle (or there's a file), do classic submit for Netlify to handle.
-    if (plainSubmitToggle() || (ndaInput && ndaInput.files && ndaInput.files.length > 0)){
-      form.submit();
-      return;
-    }
-
-    const btn = form.querySelector('button[type="submit"]');
-    if(btn){ btn.disabled = true; btn.textContent = 'Sending…'; }
-
-    try {
-      const fd = new FormData(form);
-      // Ensure form-name is explicitly included
-      if(!fd.get('form-name')) fd.append('form-name', 'rfq');
-
-      // Build x-www-form-urlencoded
-      const params = new URLSearchParams();
-      for (const [k,v] of fd.entries()){ params.append(k, v); }
-
-      // Post to the form's action if present; else post to current path
-      const endpoint = form.getAttribute('action') || window.location.pathname || '/';
-      const resp = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: params.toString()
-      });
-
-      if(resp.ok){
-        if(success){
-          success.classList.remove('hidden');
-          setTimeout(()=>{
-            if(check){
-              check.classList.remove('opacity-0','scale-50');
-              check.classList.add('opacity-100','scale-100');
-            }
-          }, 100);
-          success.scrollIntoView({behavior:'smooth', block:'center'});
-        }
-        form.reset();
-        if(ndaName) ndaName.textContent = 'No file selected';
-      } else {
-        // Fallback
-        form.submit();
-      }
-    } catch(err){
-      form.submit();
-    } finally {
-      if(btn){ btn.disabled = false; btn.textContent = 'Send Request'; }
-    }
-  });
-})();
-</script>
 
 </body>
 </html>
