@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dronesmith USA</title>
-  <meta name="description" content="Dronesmith USA designs and manufactures NDAA-compliant brushless drone motors in the United States. Built for defense and government contractors." />
+  <meta name="description" content="Dronesmith USA designs and manufactures NDAA-compliant brushless drone motors in the United States." />
   <link rel="icon" type="image/png" href="./favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -13,29 +13,21 @@
       theme: {
         extend: {
           fontFamily: { inter: ['Inter','ui-sans-serif','system-ui'] },
-          colors: {
-            bg: '#0B1220',
-            panel: '#111827',
-            panel2: '#0f172a',
-            text: '#E5E7EB',
-            sub: '#94A3B8',
-            accent: '#2563EB',
-            accent2: '#DC2626'
-          },
-          boxShadow: { soft: '0 10px 30px rgba(0,0,0,0.35)' }
+          colors: { bg:'#0B1220', panel:'#111827', panel2:'#0f172a', text:'#E5E7EB', sub:'#94A3B8', accent:'#2563EB' },
+          boxShadow: { soft:'0 10px 30px rgba(0,0,0,.35)' }
         }
       }
     }
   </script>
-  <style>html{scroll-behavior:smooth}.badge{display:inline-flex;align-items:center;border-radius:9999px;border-width:1px;padding:.25rem .75rem;font-size:.75rem;line-height:1rem;font-weight:500}</style>
+  <style>html{scroll-behavior:smooth}.badge{display:inline-flex;align-items:center;border-radius:9999px;border:1px solid #ffffff33;padding:.25rem .75rem;font-size:.75rem;line-height:1rem;font-weight:500}</style>
 </head>
 <body class="bg-bg text-text font-inter">
   <header class="sticky top-0 z-50 border-b border-white/10 bg-panel/70 backdrop-blur">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="h-16 flex items-center justify-between">
         <a href="#" class="flex items-center gap-3">
-          <img src="./logo.png" alt="Dronesmith USA logo" class="h-8 w-8 rounded-full" />
-          <span class="text-xl font-semibold tracking-tight">Dronesmith USA</span>
+          <img src="./logo.png" alt="Dronesmith USA logo" class="h-8 w-8 rounded-full ring-1 ring-white/10" />
+          <span class="text-xl font-semibold tracking-tight">Dronesmith <span class="inline-flex items-center">USA<img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="US flag" class="h-6 w-auto ml-2" /></span></span>
         </a>
         <nav class="hidden md:flex items-center gap-8 text-sub">
           <a href="#motors" class="hover:text-white">Motors</a>
@@ -64,33 +56,35 @@
     </div>
   </header>
 
+  <!-- HERO: clean background, larger motor, caption -->
   <section class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-panel via-panel2 to-bg"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 grid lg:grid-cols-2 gap-10 items-center">
       <div>
-        <span class="badge border-accent text-white bg-accent/20">NDAA-Compliant • Made in USA</span>
+        <!-- <span class="badge">NDAA-Compliant • Made in USA</span> -->
+        <span class="inline-flex items-center px-3 py-1 border border-accent rounded-full text-white bg-accent/20">NDAA-Compliant • Made in USA</span>
         <h1 class="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight">Motors engineered for critical missions.</h1>
         <p class="mt-4 text-lg text-sub">Dronesmith USA builds high-performance brushless motors with a compliant, verified US supply chain—purpose-built for government and defense UAV applications.</p>
         <div class="mt-6 flex flex-wrap gap-3">
           <a href="#motors" class="inline-flex items-center rounded-xl bg-accent px-5 py-3 text-white font-medium shadow-soft hover:brightness-110">See Our Motors</a>
           <a href="#contact" class="inline-flex items-center rounded-xl border border-white/20 px-5 py-3 font-medium hover:bg-white/5">Request a Quote</a>
         </div>
-        <div class="mt-6 flex items-center gap-6 text-sm text-sub">
+        <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm text-sub">
           <div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-green-500"></span> NDAA §889 compliant</div>
           <div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-green-500"></span> US manufacturing</div>
           <div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-green-500"></span> Defense-focused QA</div>
         </div>
       </div>
       <div class="relative">
-        <div class="relative rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-soft">
+        <div class="relative rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-soft bg-black/20">
+          <!-- <img src="./motor.png" alt="Dronesmith USA motor" class="w-full h-[420px] object-contain" /> -->
           <img src="https://raw.githubusercontent.com/TheDronesmith/DronesmithUSA/main/motor.png" alt="Dronesmith USA motor" class="w-full h-[340px] object-cover object-center bg-black/20" />
-          <div class="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-black/10"></div>
         </div>
-        <div class="mt-4 text-xs text-sub">Image may be a prototype/render. Final design and specs subject to change.</div>
+        <div class="mt-2 text-xs text-sub">Image may be a prototype/render. Final design and specs subject to change.</div>
       </div>
     </div>
   </section>
 
+  <!-- Compliance -->
   <section id="compliance" class="py-16 lg:py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-2 gap-10 items-start">
@@ -115,33 +109,25 @@
     </div>
   </section>
 
+  <!-- Motors -->
   <section id="motors" class="py-16 lg:py-20 bg-panel2 border-y border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-end justify-between gap-6">
         <div>
           <h2 class="text-2xl md:text-3xl font-bold">Motor lineup</h2>
           <p class="mt-2 class=text-sub">Pre-production designs shown below. Final specifications subject to change.</p>
+          <!-- <p class="mt-1 text-xs text-sub">Roadmap: <span class="font-semibold text-white">DS-2812</span> targeted as the first production model.</p> -->
         </div>
         <a href="#contact" class="hidden sm:inline-flex items-center rounded-xl bg-accent px-4 py-2 text-white font-medium shadow-soft hover:brightness-110">Request a Quote</a>
       </div>
-      <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-soft flex flex-col">
-          <div class="flex items-center justify-between"><h3 class="text-xl font-semibold">DS-2207</h3><span class="badge border-amber-400 text-amber-300 bg-amber-400/10">Under Development</span></div>
-          <p class="mt-2 text-sub">High-efficiency 5–7” class motor for tactical FPV and ISR.</p>
-          <dl class="mt-4 grid grid-cols-2 gap-3 text-sm">
-            <div><dt class="text-sub">KV</dt><dd class="font-medium">1750 (est.)</dd></div>
-            <div><dt class="text-sub">Stator</dt><dd class="font-medium">22×7 mm</dd></div>
-            <div><dt class="text-sub">Max Thrust</dt><dd class="font-medium">2.2 kg (est.)</dd></div>
-            <div><dt class="text-sub">Voltage</dt><dd class="font-medium">6S–8S</dd></div>
-          </dl>
-          <div class="mt-5 flex gap-3">
-            <a href="#contact" class="inline-flex items-center rounded-lg border border-white/10 px-3 py-2 hover:bg-white/5">Request Info</a>
-            <button class="inline-flex items-center rounded-lg border border-white/10 px-3 py-2 hover:bg-white/5" onclick="openSpecs('ds2207')">View Specs</button>
-          </div>
-        </article>
 
+      <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- DS-2812 with right-justified badge -->
         <article class="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-soft flex flex-col">
-          <div class="flex items-center justify-between"><h3 class="text-xl font-semibold">DS-2812</h3><span class="badge border-amber-400 text-amber-300 bg-amber-400/10">Under Development</span></div>
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold">DS-2812</h3>
+            <span class="badge border-accent text-white bg-accent/20">First to Market</span>
+          </div>
           <p class="mt-2 text-sub">Mid-lift motor for professional and industrial platforms.</p>
           <dl class="mt-4 grid grid-cols-2 gap-3 text-sm">
             <div><dt class="text-sub">KV</dt><dd class="font-medium">900 (est.)</dd></div>
@@ -155,8 +141,31 @@
           </div>
         </article>
 
+        <!-- DS-2207 Coming Soon (white text, blue oval) -->
         <article class="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-soft flex flex-col">
-          <div class="flex items-center justify-between"><h3 class="text-xl font-semibold">DS-3508</h3><span class="badge border-blue-400 text-blue-300 bg-blue-400/10">Coming Soon</span></div>
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold">DS-2207</h3>
+            <span class="badge border-amber-400 text-amber-300 bg-amber-400/10">Coming Soon</span>
+          </div>
+          <p class="mt-2 text-sub">High-efficiency 5–7” class motor for tactical FPV and ISR.</p>
+          <dl class="mt-4 grid grid-cols-2 gap-3 text-sm">
+            <div><dt class="text-sub">KV</dt><dd class="font-medium">1750 (est.)</dd></div>
+            <div><dt class="text-sub">Stator</dt><dd class="font-medium">22×7 mm</dd></div>
+            <div><dt class="text-sub">Max Thrust</dt><dd class="font-medium">2.2 kg (est.)</dd></div>
+            <div><dt class="text-sub">Voltage</dt><dd class="font-medium">6S–8S</dd></div>
+          </dl>
+          <div class="mt-5 flex gap-3">
+            <a href="#contact" class="inline-flex items-center rounded-lg border border-white/10 px-3 py-2 hover:bg-white/5">Request Info</a>
+            <button class="inline-flex items-center rounded-lg border border-white/10 px-3 py-2 hover:bg-white/5" onclick="openSpecs('ds2207')">View Specs</button>
+          </div>
+        </article>
+
+        <!-- DS-3508 Coming Soon (white text, blue oval) -->
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-soft flex flex-col">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold">DS-3508</h3>
+            <span class="badge border-amber-400 text-amber-300 bg-amber-400/10">Coming Soon</span>
+          </div>
           <p class="mt-2 text-sub">Heavy-lift motor for payload and logistics UAVs.</p>
           <dl class="mt-4 grid grid-cols-2 gap-3 text-sm">
             <div><dt class="text-sub">KV</dt><dd class="font-medium">420 (est.)</dd></div>
@@ -175,37 +184,16 @@
     </div>
   </section>
 
-  <section id="quality" class="py-16 lg:py-20">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-start">
-      <div>
-        <h2 class="text-2xl md:text-3xl font-bold">Quality you can validate</h2>
-        <p class="mt-4 text-sub">Every production motor will ship with test data, serial traceability, and material certificates where applicable.</p>
-        <ul class="mt-4 space-y-2 text-sub list-disc pl-5">
-          <li>End-of-line performance testing and burn-in</li>
-          <li>Serial numbers mapped to materials & lot history</li>
-          <li>Environmental/thermal testing (profiles available)</li>
-          <li>Custom windings and firmware on request</li>
-        </ul>
-      </div>
-      <div class="rounded-2xl bg-white/5 p-6 shadow-soft border border-white/10">
-        <div class="grid grid-cols-2 gap-4">
-          <div class="rounded-xl border border-white/10 p-4 text-center"><div class="text-sm text-sub">Traceability</div><div class="mt-1 text-lg font-semibold">Per-unit SN</div></div>
-          <div class="rounded-xl border border-white/10 p-4 text-center"><div class="text-sm text-sub">Datasheets</div><div class="mt-1 text-lg font-semibold">PDF/CSV</div></div>
-          <div class="rounded-xl border border-white/10 p-4 text-center"><div class="text-sm text-sub">Burn-in</div><div class="mt-1 text-lg font-semibold">Standard</div></div>
-          <div class="rounded-xl border border-white/10 p-4 text-center"><div class="text-sm text-sub">Support</div><div class="mt-1 text-lg font-semibold">Engineer-to-Engineer</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="py-16 lg:py-20 bg-panel border-y border-white/10">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
+  <!-- About with subtle flag -->
+  <section id="about" class="relative py-16 border-y border-white/10">
+    <div class="absolute inset-0 opacity-10" style="background:url('https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg') center/cover no-repeat;"></div>
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
       <div>
         <h2 class="text-2xl md:text-3xl font-bold">About Dronesmith USA</h2>
         <p class="mt-4 text-sub">We’re focused on building American-made motors that remove supply chain risk for mission-critical platforms. Our goal is to deliver performance on par with the best on the market while ensuring transparent, compliant sourcing.</p>
       </div>
       <div class="flex items-center gap-6">
-        <img src="./logo.png" alt="Dronesmith USA logo" class="h-20 w-20 rounded-full">
+        <img src="./logo.png" alt="Dronesmith USA logo" class="h-20 w-20 rounded-full ring-1 ring-white/10">
         <div class="text-sm text-sub">Virginia, USA • Defense & Government UAV Components</div>
       </div>
     </div>
@@ -238,8 +226,8 @@
   <footer class="border-t border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sub">
       <div class="flex items-center gap-3">
-        <img src="./logo.png" alt="Dronesmith USA logo" class="h-8 w-8 rounded-full" />
-        <span class="text-sm">© <span id="year"></span> Dronesmith USA — NDAA-Compliant Motors</span>
+        <img src="./logo.png" alt="Dronesmith USA logo" class="h-8 w-8 rounded-full ring-1 ring-white/10" />
+        <span class="text-sm">© <span id="year"></span> Dronesmith USA</span>
       </div>
       <div class="text-sm flex items-center gap-4">
         <a href="#compliance" class="hover:text-white">Compliance</a>
@@ -249,28 +237,9 @@
     </div>
   </footer>
 
-  <div id="specsModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center p-4">
-    <div class="bg-panel max-w-lg w-full rounded-2xl p-6 shadow-soft border border-white/10 relative">
-      <button onclick="closeSpecs()" class="absolute top-3 right-3 rounded-md p-1 hover:bg-white/5" aria-label="Close">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-      <h3 id="specsTitle" class="text-xl font-semibold">Motor Specs</h3>
-      <div id="specsBody" class="mt-3 text-sm text-sub">Preliminary specifications will be provided upon request.</div>
-      <div class="mt-5 text-right">
-        <a href="#contact" class="inline-flex items-center rounded-xl bg-accent px-4 py-2 text-white font-medium hover:brightness-110">Contact for Detailed Specs</a>
-      </div>
-    </div>
-  </div>
-
   <script>
     const menuBtn=document.getElementById('menuBtn');const mobileNav=document.getElementById('mobileNav');if(menuBtn)menuBtn.addEventListener('click',()=>mobileNav.classList.toggle('hidden'));
     document.getElementById('year').textContent=new Date().getFullYear();
-    const modal=document.getElementById('specsModal');const title=document.getElementById('specsTitle');const body=document.getElementById('specsBody');
-    const SPEC_TEXT={ds2207:'DS-2207 (est.): 1750KV, 6S–8S, max thrust ~2.2kg, 5–7” props. Targeting high efficiency for tactical FPV/ISR.',ds2812:'DS-2812 (est.): 900KV, 6S–12S, max thrust ~4.5kg, 9–12” props. Mid-lift for professional/industrial UAVs.',ds3508:'DS-3508 (est.): 420KV, 8S–12S, max thrust ~7.5kg, 13–15” props. Heavy-lift/payload applications.'};
-    function openSpecs(id){title.textContent=id.toUpperCase()+' — Preliminary Specs';body.textContent=SPEC_TEXT[id]||'Preliminary specifications available upon request.';modal.classList.remove('hidden');modal.classList.add('flex');}
-    function closeSpecs(){modal.classList.add('hidden');modal.classList.remove('flex');}
   </script>
 </body>
 </html>
