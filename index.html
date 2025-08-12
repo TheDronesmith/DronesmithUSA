@@ -274,19 +274,24 @@
 
 
 
+
+
+
 <script>
 (function(){
   const form = document.querySelector('form[name="rfq"]');
   if(!form) return;
 
-  // Fields for client-side validation
+  // Optional debug toggle: set window.NETLIFY_PLAIN_SUBMIT = true in console to bypass AJAX.
+  const plainSubmitToggle = () => typeof window.NETLIFY_PLAIN_SUBMIT !== 'undefined' && window.NETLIFY_PLAIN_SUBMIT;
+
+  // Required field validation (kept from prior build)
   const fields = [
     { name: 'name',    msg: 'Please enter your name.', email: false },
     { name: 'org',     msg: 'Please enter your organization.', email: false },
     { name: 'email',   msg: 'Please enter a valid email address.', email: true },
     { name: 'message', msg: 'Please enter your message.', email: false }
   ];
-
   function showError(fieldName, text){
     const err = document.getElementById('err-' + fieldName);
     if(err){ err.textContent = text; err.classList.remove('hidden'); }
@@ -309,9 +314,7 @@
       if(!el) return;
       const val = (el.value||'').trim();
       let ok = !!val;
-      if(ok && f.email){
-        ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
-      }
+      if(ok && f.email){ ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val); }
       if(!ok){
         showError(f.name, f.msg);
         if(!firstInvalid) firstInvalid = el;
@@ -337,7 +340,6 @@
   form.addEventListener('submit', async function(e){
     e.preventDefault();
 
-    // Client-side validation
     const firstInvalid = validate();
     if(firstInvalid){
       firstInvalid.scrollIntoView({behavior:'smooth', block:'center'});
@@ -349,26 +351,32 @@
     const hp = form.querySelector('[name="bot-field"]');
     if(hp && hp.value) return;
 
-    const btn = form.querySelector('button[type="submit"]');
-    if(btn){ btn.disabled = true; btn.textContent = 'Sending…'; }
-
-    // If a file is attached, use normal form submit (multipart) so Netlify handles it as a classic form POST.
-    if(ndaInput && ndaInput.files && ndaInput.files.length > 0){
+    // If user enabled plain submit toggle (or there's a file), do classic submit for Netlify to handle.
+    if (plainSubmitToggle() || (ndaInput && ndaInput.files && ndaInput.files.length > 0)){
       form.submit();
-      if(btn){ btn.disabled = false; btn.textContent = 'Send Request'; }
       return;
     }
 
-    // Otherwise, send as x-www-form-urlencoded (more reliable for Netlify Form capture via AJAX)
+    const btn = form.querySelector('button[type="submit"]');
+    if(btn){ btn.disabled = true; btn.textContent = 'Sending…'; }
+
     try {
       const fd = new FormData(form);
+      // Ensure form-name is explicitly included
+      if(!fd.get('form-name')) fd.append('form-name', 'rfq');
+
+      // Build x-www-form-urlencoded
       const params = new URLSearchParams();
       for (const [k,v] of fd.entries()){ params.append(k, v); }
-      const resp = await fetch("/", {
+
+      // Post to the form's action if present; else post to current path
+      const endpoint = form.getAttribute('action') || window.location.pathname || '/';
+      const resp = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: params.toString()
       });
+
       if(resp.ok){
         if(success){
           success.classList.remove('hidden');
@@ -383,7 +391,7 @@
         form.reset();
         if(ndaName) ndaName.textContent = 'No file selected';
       } else {
-        // Fallback to normal submit
+        // Fallback
         form.submit();
       }
     } catch(err){
