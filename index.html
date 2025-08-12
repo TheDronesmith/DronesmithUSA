@@ -271,57 +271,56 @@
 
 
 
+
+
+
 <script>
 (function(){
   const form = document.querySelector('form[name="rfq"]');
   if(!form) return;
 
-  // Fields & error nodes
+  // Fields for client-side validation
   const fields = [
-    { name: 'name',    label: 'Name',        msg: 'Please enter your name.' },
-    { name: 'org',     label: 'Organization',msg: 'Please enter your organization.' },
-    { name: 'email',   label: 'Email',       msg: 'Please enter a valid email address.', email: true },
-    { name: 'message', label: 'Message',     msg: 'Please enter your message.' }
+    { name: 'name',    msg: 'Please enter your name.', email: false },
+    { name: 'org',     msg: 'Please enter your organization.', email: false },
+    { name: 'email',   msg: 'Please enter a valid email address.', email: true },
+    { name: 'message', msg: 'Please enter your message.', email: false }
   ];
 
   function showError(fieldName, text){
     const err = document.getElementById('err-' + fieldName);
-    if(err){
-      err.textContent = text;
-      err.classList.remove('hidden');
-    }
+    if(err){ err.textContent = text; err.classList.remove('hidden'); }
+    const el = form.querySelector('[name="'+fieldName+'"]');
+    if(el) el.setAttribute('aria-invalid','true');
   }
   function clearErrors(){
     fields.forEach(f=>{
       const err = document.getElementById('err-' + f.name);
       if(err) err.classList.add('hidden');
-      const input = form.querySelector('[name="'+f.name+'"]');
-      if(input) input.removeAttribute('aria-invalid');
+      const el = form.querySelector('[name="'+f.name+'"]');
+      if(el) el.removeAttribute('aria-invalid');
     });
   }
-
   function validate(){
     clearErrors();
     let firstInvalid = null;
     fields.forEach(f=>{
       const el = form.querySelector('[name="'+f.name+'"]');
       if(!el) return;
-      let val = (el.value || '').trim();
-      let ok = true;
-      if(!val) ok = false;
+      const val = (el.value||'').trim();
+      let ok = !!val;
       if(ok && f.email){
         ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
       }
       if(!ok){
         showError(f.name, f.msg);
-        el.setAttribute('aria-invalid', 'true');
         if(!firstInvalid) firstInvalid = el;
       }
     });
     return firstInvalid;
   }
 
-  // Wire custom file UI (if present)
+  // NDA custom UI
   const ndaInput = form.querySelector('#ndaFile');
   const ndaBtn = form.querySelector('#ndaBtn');
   const ndaName = form.querySelector('#ndaFilename');
@@ -337,23 +336,39 @@
 
   form.addEventListener('submit', async function(e){
     e.preventDefault();
+
+    // Client-side validation
     const firstInvalid = validate();
     if(firstInvalid){
-      firstInvalid.scrollIntoView({ behavior:'smooth', block:'center' });
-      firstInvalid.focus({ preventScroll:true });
+      firstInvalid.scrollIntoView({behavior:'smooth', block:'center'});
+      firstInvalid.focus({preventScroll:true});
       return;
     }
 
-    // Honeypot check
+    // Honeypot
     const hp = form.querySelector('[name="bot-field"]');
     if(hp && hp.value) return;
 
     const btn = form.querySelector('button[type="submit"]');
     if(btn){ btn.disabled = true; btn.textContent = 'Sending…'; }
 
+    // If a file is attached, use normal form submit (multipart) so Netlify handles it as a classic form POST.
+    if(ndaInput && ndaInput.files && ndaInput.files.length > 0){
+      form.submit();
+      if(btn){ btn.disabled = false; btn.textContent = 'Send Request'; }
+      return;
+    }
+
+    // Otherwise, send as x-www-form-urlencoded (more reliable for Netlify Form capture via AJAX)
     try {
-      const data = new FormData(form);
-      const resp = await fetch("/", { method: "POST", body: data });
+      const fd = new FormData(form);
+      const params = new URLSearchParams();
+      for (const [k,v] of fd.entries()){ params.append(k, v); }
+      const resp = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: params.toString()
+      });
       if(resp.ok){
         if(success){
           success.classList.remove('hidden');
@@ -368,7 +383,8 @@
         form.reset();
         if(ndaName) ndaName.textContent = 'No file selected';
       } else {
-        form.submit(); // Fallback to Netlify (may trigger captcha/redirect)
+        // Fallback to normal submit
+        form.submit();
       }
     } catch(err){
       form.submit();
