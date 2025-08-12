@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dronesmith USA</title>
+  <link rel="icon" type="image/png" href="./favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { inter: ['Inter','ui-sans-serif','system-ui'] },
+          colors: { bg: '#0B1220', panel: '#111827', panel2: '#0f172a', text: '#E5E7EB', sub: '#94A3B8', accent: '#2563EB', accent2: '#DC2626' },
+          boxShadow: { soft: '0 10px 30px rgba(0,0,0,0.35)' }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-bg text-text font-inter">
+<header class="sticky top-0 z-50 border-b border-white/10 bg-panel/70 backdrop-blur">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
+    <a href="#" class="flex items-center gap-3">
+      <img src="./logo.png" class="h-8 w-8 rounded-full ring-1 ring-white/10" />
+      <span class="text-xl font-semibold">Dronesmith USA</span>
+    </a>
+  </div>
+</header>
+
+<!-- Hero with subtle flag background -->
+<section class="relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10" style="background:url('https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg') center/cover no-repeat;"></div>
+  <div class="relative max-w-7xl mx-auto px-4 py-16 lg:py-24 grid lg:grid-cols-2 gap-10 items-center bg-gradient-to-r from-black/60 via-black/50 to-black/40">
+    <div>
+      <span class="inline-flex items-center px-3 py-1 border border-accent rounded-full text-white bg-accent/20">NDAA-Compliant • Made in USA</span>
+      <h1 class="mt-4 text-4xl md:text-5xl font-extrabold">Motors engineered for critical missions.</h1>
+      <p class="mt-4 text-lg text-sub">Dronesmith USA builds high-performance brushless motors with a compliant, verified US supply chain—purpose-built for government and defense UAV applications.</p>
+    </div>
+    <div class="relative">
+      <img src="./motor.png" alt="motor" class="w-full h-[340px] object-contain rounded-2xl ring-1 ring-white/10 shadow-soft bg-black/20 p-2" />
+    </div>
+  </div>
+</section>
+
+<!-- Compliance section -->
+<section class="py-16 max-w-6xl mx-auto px-4">
+  <h2 class="text-2xl font-bold">Built to meet NDAA requirements</h2>
+</section>
+
+<!-- Motor lineup placeholder -->
+<section id="motors" class="py-16 bg-panel2 border-y border-white/10">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-2xl font-bold">Motor lineup</h2>
+    <p class="text-sub">Roadmap: DS-2812 first to market, others coming soon.</p>
+  </div>
+</section>
+
+<!-- About section with flag background -->
+<section id="about" class="relative py-16 border-y border-white/10">
+  <div class="absolute inset-0 opacity-10" style="background:url('https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg') center/cover no-repeat;"></div>
+  <div class="relative max-w-6xl mx-auto px-4">
+    <h2 class="text-2xl font-bold">About Dronesmith USA</h2>
+    <p class="text-sub mt-2">We build NDAA-compliant motors in the USA for defense and government UAVs.</p>
+  </div>
+</section>
+
+<!-- Footer with flag background -->
+<footer class="relative border-t border-white/10">
+  <div class="absolute inset-0 opacity-10" style="background:url('https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg') center/cover no-repeat;"></div>
+  <div class="relative max-w-7xl mx-auto px-4 py-8 flex items-center justify-between text-sub">
+    <div class="flex items-center gap-3">
+      <img src="./logo.png" class="h-8 w-8 rounded-full ring-1 ring-white/10" />
+      <span>© <span id="year"></span> Dronesmith USA</span>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>
